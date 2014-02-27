@@ -12,4 +12,4 @@ Recommends: debathena-mit-automounter
 Provides: ${diverted-files}
 Conflicts: ${diverted-files}
 Description: AFS configuration for Debathena
- This packages configures OpenAFS to access the Athena AFS cell.
+ This package configures OpenAFS to access the Athena AFS cell.
