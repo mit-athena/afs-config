@@ -3,3 +3,11 @@ AFS_AFSDB=true
 AFS_CRYPT=true
 AFS_DYNROOT=true
 AFS_FAKESTAT=true
+# Clean up from a broken openafs initscript.  See Debathena #1416
+# and Debian #729353
+openafs_ver=$(dpkg-query -W -f '${Version}' openafs-client)
+if dpkg --compare-versions "$openafs_ver" ge 1.6.2.1-1~ &&
+    dpkg --compare-versions "$openafs_ver" lt 1.6.6-1~; then
+    AFS_DYNROOT=Yes
+fi
+unset openafs_ver

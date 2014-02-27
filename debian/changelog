@@ -1,3 +1,11 @@
+debathena-afs-config (1.23) unstable; urgency=low
+
+  * Modify afs.client.conf to pass AFS_DYNROOT=Yes to the broken versions
+    that require it (Trac: #1416)
+  * Correct spelling error in Description field in control file
+
+ -- Jonathan Reed <jdreed@mit.edu>  Thu, 27 Feb 2014 10:19:11 -0500
+
 debathena-afs-config (1.22) unstable; urgency=low
 
   [ Jonathan Reed ]
