@@ -24,7 +24,7 @@ clean-from-athena:
 common-build-indep:: $(FROM_ATHENA)
 
 $(ATHENA) : %.athena: FORCE
-	wget http://stuff.mit.edu/afs/athena.mit.edu/service/$(patsubst debian/%.athena,%,$@) -O $@.new
+	wget https://stuff.mit.edu/afs/athena.mit.edu/service/$(patsubst debian/%.athena,%,$@) -O $@.new
 	diff -q $@ $@.new  # Check that they are the same.
 	rm -f $@.new
 

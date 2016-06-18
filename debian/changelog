@@ -1,3 +1,10 @@
+debathena-afs-config (1.24) UNRELEASED; urgency=medium
+
+  * Update CellServDB.
+  * Download reference copies over https.
+
+ -- Anders Kaseorg <andersk@mit.edu>  Sat, 18 Jun 2016 04:20:15 -0400
+
 debathena-afs-config (1.23) unstable; urgency=low
 
   * Modify afs.client.conf to pass AFS_DYNROOT=Yes to the broken versions

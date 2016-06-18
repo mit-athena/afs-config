@@ -2,7 +2,7 @@ Source: debathena-afs-config
 Section: debathena-config/net
 Priority: extra
 Maintainer: Debathena Project <debathena@mit.edu>
-Build-Depends: cdbs, debhelper, dh-buildinfo, config-package-dev (>= 5.0~), wget, openafs-client
+Build-Depends: cdbs, debhelper, dh-buildinfo, config-package-dev (>= 5.0~), wget, ca-certificates, openafs-client
 Standards-Version: 3.9.3
 
 Package: debathena-afs-config
