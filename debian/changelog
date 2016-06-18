@@ -1,7 +1,8 @@
-debathena-afs-config (1.24) UNRELEASED; urgency=medium
+debathena-afs-config (1.24) unstable; urgency=medium
 
   * Update CellServDB.
   * Download reference copies over https.
+  * Drop numenor.mit.edu from CellAlias.debathena-extra.
 
  -- Anders Kaseorg <andersk@mit.edu>  Sat, 18 Jun 2016 04:20:15 -0400
 
