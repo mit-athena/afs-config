@@ -13,25 +13,14 @@ DEB_TRANSFORM_FILES_debathena-afs-config += \
 include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/rules/config-package.mk
 
-FROM_ATHENA = debian/CellAlias.debathena debian/CellServDB.debathena
-ATHENA = $(patsubst %.debathena,%.athena,$(FROM_ATHENA))
+ATHENA = debian/CellAlias.debathena debian/CellServDB.debathena
 
-clean:: $(ATHENA) clean-from-athena
+common-build-indep:: $(ATHENA)
 
-clean-from-athena:
-	rm -f $(FROM_ATHENA)
-
-common-build-indep:: $(FROM_ATHENA)
-
-$(ATHENA) : %.athena: FORCE
-	wget https://stuff.mit.edu/afs/athena.mit.edu/service/$(patsubst debian/%.athena,%,$@) -O $@.new
+$(ATHENA): FORCE
+	wget https://stuff.mit.edu/afs/athena.mit.edu/service/$(patsubst debian/%.debathena,%,$@) -O $@.new
 	diff -q $@ $@.new  # Check that they are the same.
 	rm -f $@.new
-
-$(FROM_ATHENA) : %.debathena: %.athena %.debathena-extra
-	cat $^ >| $@.tmp
-	diff -q $@.tmp $@ || mv $@.tmp $@
-	rm -f $@.tmp
 
 FORCE:
 
