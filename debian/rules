@@ -1,27 +1,22 @@
 #!/usr/bin/make -f
 
-DEB_DIVERT_EXTENSION = .debathena
-DEB_DIVERT_FILES_debathena-afs-config += \
-	/etc/openafs/afs.conf.client.debathena \
-	/etc/openafs/CellAlias.debathena \
-	/etc/openafs/CellServDB.debathena \
-	/etc/openafs/SuidCells.debathena \
-	/etc/openafs/ThisCell.debathena \
-	/etc/openafs/cacheinfo.debathena
-DEB_TRANSFORM_FILES_debathena-afs-config += \
-	/etc/openafs/afs.conf.debathena
-include /usr/share/cdbs/1/rules/debhelper.mk
-include /usr/share/cdbs/1/rules/config-package.mk
+%:
+	dh $@ --with=config-package
 
 ATHENA = debian/CellAlias.debathena debian/CellServDB.debathena
 
-common-build-indep:: $(ATHENA)
+override_dh_auto_build: $(ATHENA)
 
-$(ATHENA): FORCE
+# We only use perl from a maintainer script, and only use modules in
+# perl-base, so explicitly tell dh_perl that perl-base is fine
+override_dh_perl:
+	dh_perl -d
+
+$(ATHENA):
 	wget https://stuff.mit.edu/afs/athena.mit.edu/service/$(patsubst debian/%.debathena,%,$@) -O $@.new
 	diff -q $@ $@.new  # Check that they are the same.
 	rm -f $@.new
 
-FORCE:
+.PHONY: $(ATHENA)
 
 .PRECIOUS: $(ATHENA)

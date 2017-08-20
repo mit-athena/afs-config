@@ -1,0 +1,6 @@
+/etc/openafs/afs.conf.client.debathena
+/etc/openafs/CellAlias.debathena
+/etc/openafs/CellServDB.debathena
+/etc/openafs/SuidCells.debathena
+/etc/openafs/ThisCell.debathena
+/etc/openafs/cacheinfo.debathena

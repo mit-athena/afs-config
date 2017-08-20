@@ -1,7 +1,8 @@
-debathena-afs-config (1.26) UNRELEASED; urgency=medium
+debathena-afs-config (1.26) unstable; urgency=medium
 
   * Update CellServDB from /afs/athena/service/CellServDB.new.
   * debian/rules: Remove special handling for Numenor.
+  * Convert packaging to dh7 from CDBS.
 
  -- Geoffrey Thomas <geofft@mit.edu>  Sat, 19 Aug 2017 23:12:48 -0400
 
